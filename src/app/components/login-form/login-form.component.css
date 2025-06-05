@@ -1,7 +1,7 @@
 .login-container {
     width: 100%;
     margin: 0 auto;
-    height:90vh;
+    height:87.5vh;
     box-sizing: border-box;
     display: flex;
   }
@@ -10,7 +10,7 @@
     background: white;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    height: 65%;
+    height: 75%;
     width: 25vw;
     box-sizing: border-box;
     margin: auto;
@@ -21,7 +21,7 @@
     display: block;
     justify-content: center;
     align-items: center;
-    background-color: #5a67d8;
+    background-color: #362e83;
     border-radius: 12px 12px 0px 0px;
   }
 
@@ -30,11 +30,13 @@
     text-align: center;
     margin: 0;
     padding-top:0.5em;
+    color: white;
   }
   
   .login-div-title p {
     font-size: 1.2em;
     text-align: center;
+    color: white
   }
 
   .login-div-form{
@@ -53,7 +55,7 @@
   .form-group {
     width:70%;
     display: block;
-    margin: 0 auto;
+    margin: 3vh auto;
     margin-bottom: 2rem;
   }
 
@@ -79,7 +81,7 @@
   .login-btn {
     width: 40%;
     padding: 0.75rem;
-    background-color: #667eea;
+    background-color: #362e83;
     color: white;
     border: none;
     border-radius: 8px;
@@ -88,11 +90,11 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: 10px auto;
+    margin: 0 auto;
   }
   
   .login-btn:hover {
-    background-color: #5a67d8;
+    background-color: #4436a3;
   }
   
   .forgot-password {

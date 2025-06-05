@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="view-details-container">  
+  <div class="view-details-card">
+    <h2 class="card-title">Project Details</h2>
+
+    <div class="card-field">
+      <label>Project Title</label>
+      <p>{{ project.title }}</p>
+    </div>
+    <div class="card-field">
+      <label>Description</label>
+      <p>{{ project.description }}</p>
+    </div>
+    <div class="card-field">
+      <label>Student</label>
+      <p>{{ project.studentName }}</p>
+    </div>
+    <div class="card-field">
+      <label>Specializare</label>
+      <p>{{ project.specialization }}</p>
+    </div>
+    <div class="card-field">
+      <label>Level of education</label>
+      <p>{{ project.levelOfStudy }}</p>
+    </div>
+    <div class="card-buttons-div">
+        <button class="acceptButton" (click)="acceptProjectRequest()">Accept</button>
+        <button class="rejectButton" (click)="rejectProjectRequest()">Reject</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

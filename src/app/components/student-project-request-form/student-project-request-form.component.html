@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="request-form-container">
+    <div class="request-form-card">
+        <h1>Request form</h1>
+        <form (ngSubmit)="onSubmit()">
+            <!-- First Select -->
+            <label for="mainSelect">Alege un profesor:</label>
+            <select id="mainSelect" [(ngModel)]="formData.mainSelect" name="mainSelect">
+                <option value="opt1">Option 1</option>
+                <option value="opt2">Option 2</option>
+            </select>
+
+            <!-- Checkbox -->
+            <div class="checkboxDiv">
+                <label>
+                <input type="checkbox" [(ngModel)]="formData.extraInputs" name="extraInputs">
+                Idee proprie de lucrare
+                </label>
+            </div>
+
+            <!-- Conditionally Show Inputs or Select -->
+            <div *ngIf="formData.extraInputs; else showSecondSelect">
+                <label>Text Input 1:</label>
+                <input type="text" [(ngModel)]="formData.inputOne" name="inputOne" />
+
+                <label>Text Input 2:</label>
+                <input type="text" [(ngModel)]="formData.inputTwo" name="inputTwo" />
+            </div>
+
+            <ng-template #showSecondSelect>
+                <label for="alternativeSelect">Lucrari propuse de profesor:</label>
+                <select id="alternativeSelect" [(ngModel)]="formData.altSelect" name="altSelect">
+                <option value="alt1">Alternative 1</option>
+                <option value="alt2">Alternative 2</option>
+                </select>
+            </ng-template>
+
+            <!-- ❗ Warning message -->
+            <p *ngIf="showWarning" class="warning-message">
+                !! Please fill in all the fields before submitting !!
+            </p>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -4,12 +4,14 @@
     justify-content: space-between;
     position: relative;
     /* padding: 1rem; */
-    background-color: #667eea;
-    height: 5vh;
+    /* background-color: #667eea; */
+    background-color: #F5F5F5;
+    height: 7.5vh;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* x-offset, y-offset, blur, color */
   }
   
   .logo {
-    height: 40px;
+    height: 55px;
     justify-content: flex-start;
   }
 
@@ -18,5 +20,5 @@
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
-    color:white;
+    color:#362e83;
   }

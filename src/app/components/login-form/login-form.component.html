@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="login-container">
   <div class="login-card">
     <div class="login-div-title">
@@ -15,11 +16,13 @@
           <label>Password</label>
           <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required />
         </div>
-        <!-- <div class="form-login-btn-div"> -->
           <button type="submit" class="login-btn">Login</button>
-        <!-- </div> -->
-        <a href="#" class="forgot-password">Forgot password?</a>
+        <a class="forgot-password" [routerLink]="['/StudentRequestProjectForm']">Forgot password?</a>
+        <a class="forgot-password" [routerLink]="['/StudentRequestProjectView']">Forgot password?</a>
+        <a class="forgot-password" [routerLink]="['/ProfessorAddNewProjectIdea']">Forgot password?</a>
+        <a class="forgot-password" [routerLink]="['/ProfessorViewOwnProjectIdeas']">Forgot password?</a>
       </form>
     </div>
   </div>
 </div>
+<app-footer></app-footer>
