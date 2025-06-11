@@ -23,7 +23,7 @@
       <label>Level of education</label>
       <p>{{ project.levelOfStudy }}</p>
     </div>
-    <div class="card-buttons-div">
+    <div class="card-buttons-div" *ngIf="!project.IsAccepted">
         <button class="acceptButton" (click)="acceptProjectRequest()">Accept</button>
         <button class="rejectButton" (click)="rejectProjectRequest()">Reject</button>
     </div>

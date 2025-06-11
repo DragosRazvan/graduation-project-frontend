@@ -10,6 +10,8 @@ import { SecretaryMainPageComponent } from './components/secretary-main-page/sec
 import { SecretaryViewDepartmentsComponent } from './components/secretary-view-departments/secretary-view-departments.component';
 import { SecretaryViewSpecializationsComponent } from './components/secretary-view-specializations/secretary-view-specializations.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { SecretaryViewProfessorsComponent } from './components/secretary-view-professors/secretary-view-professors.component';
+import { SecretaryViewStudentsComponent } from './components/secretary-view-students/secretary-view-students.component';
 
 export const routes: Routes = [
     {
@@ -50,5 +52,17 @@ export const routes: Routes = [
     {
         path: "SecretaryViewSpecializations",
         component: SecretaryViewSpecializationsComponent
+    },
+    {
+        path: "SecretaryViewProfessors",
+        component: SecretaryViewProfessorsComponent
+    },
+    {
+        path: "SecretaryViewSpecializations",
+        component: SecretaryViewSpecializationsComponent
+    },
+    {
+        path: "SecretaryViewStudents",
+        component: SecretaryViewStudentsComponent
     }
 ];

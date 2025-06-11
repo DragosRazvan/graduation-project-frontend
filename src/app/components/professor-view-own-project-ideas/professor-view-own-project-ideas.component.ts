@@ -13,6 +13,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 })
 export class ProfessorViewOwnProjectIdeasComponent {
 projects = [
-    { id: 1, title: 'AI Assistant', status: "taken", student: 'Alice Johnson' }
+    { id: 1, title: 'AI Assistant', status: "taken", student: 'Alice Johnson' },
+    { id: 2, title: "Online shop", status: "free", student: null}
   ];
 }
