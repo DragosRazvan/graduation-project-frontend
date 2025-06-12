@@ -1,29 +1,29 @@
 <app-header></app-header>
 <div class="container">
     <div class="form-card">
-        <h1>New project idea</h1>
+        <h1>Idee nouă de proiect</h1>
         <form (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label>Project title:</label>
+                <label>Titlu proiect:</label>
                 <input type="text" [(ngModel)]="formData.inputOne" name="inputOne" />
             </div>
             <div class="form-group">
-                <label>Description:</label>
+                <label>Descriere:</label>
                 <input type="text" [(ngModel)]="formData.inputTwo" name="inputTwo" />
             </div>
             <div class="form-group">
-                <label for="alternativeSelect">Level of Education:</label>
+                <label for="alternativeSelect">Nivel educație:</label>
                 <select id="alternativeSelect" [(ngModel)]="formData.altSelect" name="altSelect">
-                    <option value="alt1">Bachelor Degree</option>
-                    <option value="alt2">Master Degree</option>
+                    <option value="alt1">Licență</option>
+                    <option value="alt2">Master</option>
                 </select>
             </div>
             <!-- ❗ Warning message -->
             <p *ngIf="showWarning" class="warning-message">
-                !! Please fill in all the fields before submitting !!
+                !! Te rog completează toate câmpurile !!
             </p>
             <!-- Submit Button -->
-            <button type="submit">Submit</button>
+            <button type="submit">Trimite</button>
         </form>
     </div>
 </div>

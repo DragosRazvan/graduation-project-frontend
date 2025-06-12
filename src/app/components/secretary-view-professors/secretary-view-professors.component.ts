@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SecretaryViewProfessorsComponent {
 professors = [
-    { id: 1, name: 'Incze Arpad', departmentId: 1, department: "Matematica si Informatica"},
-    { id: 2, name: 'Muntean Maria', departmentId: 1, department: "Matematica si Informatica"}
+    { id: 1, name: 'Incze Arpad', departmentId: 1, department: "Matematica si Informatică"},
+    { id: 2, name: 'Muntean Maria', departmentId: 1, department: "Matematica si Informatică"}
   ];
 }

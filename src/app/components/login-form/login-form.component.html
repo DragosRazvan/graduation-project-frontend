@@ -2,8 +2,8 @@
 <div class="login-container">
   <div class="login-card">
     <div class="login-div-title">
-        <h2>Login</h2>
-        <p>Please enter your credentials!</p>
+        <h2>Autentificare</h2>
+        <p>Introduceți-vă credențialele!</p>
     </div>
     <div class="login-div-form">
       <form (ngSubmit)="login()">
@@ -13,14 +13,14 @@
         </div>
 
         <div class="form-group">
-          <label>Password</label>
-          <input [(ngModel)]="password" name="password" type="password" placeholder="Password" required />
+          <label>Parolă</label>
+          <input [(ngModel)]="password" name="password" type="password" placeholder="Parolă" required />
         </div>
-          <button type="submit" class="login-btn">Login</button>
-        <a class="forgot-password" [routerLink]="['/StudentRequestProjectForm']">Forgot password?</a>
-        <a class="forgot-password" [routerLink]="['/StudentRequestProjectView']">Forgot password?</a>
-        <a class="forgot-password" [routerLink]="['/ProfessorAddNewProjectIdea']">Forgot password?</a>
-        <a class="forgot-password" [routerLink]="['/ProfessorViewOwnProjectIdeas']">Forgot password?</a>
+          <button type="submit" class="login-btn">Autentificare</button>
+        <a class="forgot-password" [routerLink]="['/StudentRequestProjectForm']">Ți-ai uitat parola?</a>
+        <a class="forgot-password" [routerLink]="['/StudentRequestProjectView']">Ți-ai uitat parola?</a>
+        <a class="forgot-password" [routerLink]="['/ProfessorAddNewProjectIdea']">Ți-ai uitat parola?</a>
+        <a class="forgot-password" [routerLink]="['/ProfessorViewOwnProjectIdeas']">Ți-ai uitat parola?</a>
       </form>
     </div>
   </div>

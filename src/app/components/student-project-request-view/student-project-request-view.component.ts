@@ -10,9 +10,9 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class StudentProjectRequestViewComponent {
 project = {
-    title: 'AI Research Assistant',
-    description: 'A system that uses natural language processing to assist researchers.',
-    professor: 'Dr. Jane Smith'
+    title: 'Asistent de cercetare AI',
+    description: 'Un sistem care folosește procesarea limbajului natural pentru a ajuta cercetătorii.',
+    professor: 'Muntean Maria'
   };
 
   goBack() {

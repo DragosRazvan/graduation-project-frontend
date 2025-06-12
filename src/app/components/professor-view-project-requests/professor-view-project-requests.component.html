@@ -1,14 +1,14 @@
 <app-header></app-header>    
 <div class="table-wrapper">
     <div class="table-container">
-        <h2>Project requests</h2>
+        <h2>Cereri coordonare proiecte</h2>
         <table>
             <thead>
                 <tr>
-                <th>Title</th>
+                <th>Titlu</th>
                 <th>Student</th>
                 <th>Status</th>
-                <th>Details</th>
+                <th>Acțiuni</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,12 +16,12 @@
                 <td>{{ project.title }}</td>
                 <td>{{ project.student }}</td>
                 <td [ngClass]="{
-                    'status-accepted': project.status === 'accepted',
-                    'status-pending': project.status === 'pending'
+                    'status-accepted': project.status === 'acceptată',
+                    'status-pending': project.status === 'în așteptare'
                     }">{{ project.status }}
                 </td>
                 <td>
-                    <a [routerLink]="['/ProfessorUpdateProjectRequest', project.id]" class="details-link">View</a>
+                    <a [routerLink]="['/ProfessorUpdateProjectRequest', project.id]" class="details-link">Vizualizare</a>
                 </td>
                 </tr>
             </tbody>

@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class SecretaryViewDepartmentsComponent {
 departments = [
-    { id: 1, name: 'Matematica si Informaticagerwtgerheryhrvafefvebvtcavgaefaevresvsvavavav wgbsrbsb srbsbw bb gbgsbs bsdbsbsbsbsfgbsbhbrssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss'},
+    { id: 1, name: 'Matematica si Informatica'},
     { id: 2, name: 'Inginerie'}
   ];
 

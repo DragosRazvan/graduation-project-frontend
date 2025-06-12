@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="request-form-container">
     <div class="request-form-card">
-        <h1>Request form</h1>
+        <h1>Formular cerere proiect</h1>
         <form (ngSubmit)="onSubmit()">
             <!-- First Select -->
             <label for="mainSelect">Alege un profesor</label>
@@ -29,20 +29,20 @@
             </div>
 
             <ng-template #showSecondSelect>
-                <label for="alternativeSelect">Lucrari propuse de profesor</label>
+                <label for="alternativeSelect">Lucrări propuse de profesor</label>
                 <select id="alternativeSelect" [(ngModel)]="formData.altSelect" name="altSelect">
                 <option value="alt1">AI Chatbot</option>
-                <option value="alt2">Online Shop</option>
+                <option value="alt2">Magazin online</option>
                 </select>
             </ng-template>
 
             <!-- ❗ Warning message -->
             <p *ngIf="showWarning" class="warning-message">
-                !! Please fill in all the fields before submitting !!
+                !! Te rog completează toate câmpurile !!
             </p>
 
             <!-- Submit Button -->
-            <button type="submit">Submit</button>
+            <button type="submit">Trimite</button>
         </form>
     </div>
 </div>

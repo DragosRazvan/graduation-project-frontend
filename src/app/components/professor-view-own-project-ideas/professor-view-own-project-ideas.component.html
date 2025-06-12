@@ -2,16 +2,16 @@
 <div class="table-wrapper">
     <div class="table-container">
         <div class="table-header">
-            <h2>Own project ideas</h2>
-            <a [routerLink]="['../ProfessorAddNewProjectIdea']" class="add-btn">+ Add Project</a>
+            <h2>Idei proprii de proiecte</h2>
+            <a [routerLink]="['../ProfessorAddNewProjectIdea']" class="add-btn">+ Adaugă proiect</a>
         </div>
         <table>
         <thead>
             <tr>
-            <th>Title</th>
+            <th>Titlu</th>
             <th>Student</th>
             <th>Status</th>
-            <th>Details</th>
+            <th>Acțiuni</th>
             </tr>
         </thead>
         <tbody>
@@ -19,12 +19,12 @@
             <td>{{ project.title }}</td>
             <td>{{ project.student }}</td>
             <td [ngClass]="{
-                'status-free': project.status === 'free',
-                'status-taken': project.status === 'taken'
+                'status-free': project.status === 'liberă',
+                'status-taken': project.status === 'ocupată'
                 }">{{ project.status }}
             </td>
             <td>
-                <a [routerLink]="['/project', project.id]" class="details-link">View/Modify</a>
+                <a [routerLink]="['/project', project.id]" class="details-link">Vizualizează/Modifică</a>
             </td>
             </tr>
         </tbody>

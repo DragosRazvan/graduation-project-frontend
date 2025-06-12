@@ -1,14 +1,14 @@
 <app-header></app-header>
 <div class="view-details-container">  
   <div class="view-details-card">
-    <h2 class="card-title">Project Details</h2>
+    <h2 class="card-title">Detalii proiect</h2>
 
     <div class="card-field">
-      <label>Project Title</label>
+      <label>Titlu proiect</label>
       <p>{{ project.title }}</p>
     </div>
     <div class="card-field">
-      <label>Description</label>
+      <label>Descriere</label>
       <p>{{ project.description }}</p>
     </div>
     <div class="card-field">
@@ -20,12 +20,12 @@
       <p>{{ project.specialization }}</p>
     </div>
     <div class="card-field">
-      <label>Level of education</label>
+      <label>Nivel educație</label>
       <p>{{ project.levelOfStudy }}</p>
     </div>
     <div class="card-buttons-div" *ngIf="!project.IsAccepted">
-        <button class="acceptButton" (click)="acceptProjectRequest()">Accept</button>
-        <button class="rejectButton" (click)="rejectProjectRequest()">Reject</button>
+        <button class="acceptButton" (click)="acceptProjectRequest()">Acceptă</button>
+        <button class="rejectButton" (click)="rejectProjectRequest()">Refuză</button>
     </div>
   </div>
 </div>

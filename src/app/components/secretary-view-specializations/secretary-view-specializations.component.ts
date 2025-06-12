@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SecretaryViewSpecializationsComponent {
   specializations = [
-      { id: 1, name: 'Informatica', departmentId: 1},
-      { id: 2, name: 'PABD', departmentId: 1}
+      { id: 1, name: 'Informatica', department: "Matematică și Informatică"},
+      { id: 2, name: 'PABD', department: "Matematică și Informatică"}
     ];
 }

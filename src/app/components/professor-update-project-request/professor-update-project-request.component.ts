@@ -12,8 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ProfessorUpdateProjectRequestComponent {
   project = {
-    title: 'Online Gym Store',
-    description: "An online gym store",
+    title: 'Magazin online',
+    description: "Un magazin online pentru o sala de forță",
     studentName: "Barbut Dragos",
     IsAccepted: false,
     levelOfStudy: "Master",
