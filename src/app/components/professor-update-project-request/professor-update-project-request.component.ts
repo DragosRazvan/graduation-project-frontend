@@ -12,9 +12,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ProfessorUpdateProjectRequestComponent {
   project = {
-    title: 'Magazin online',
-    description: "Un magazin online pentru o sala de forță",
-    studentName: "Barbut Dragos",
+    title: 'Asistent AI',
+    description: "Un asistent AI",
+    studentName: "Ion Ionescu",
     IsAccepted: false,
     levelOfStudy: "Master",
     specialization: "PABD"

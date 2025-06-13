@@ -43,10 +43,10 @@ export class SecretaryViewStudentsComponent implements OnInit {
   ngOnInit() {
     // Poți înlocui această parte cu un apel API dacă e cazul
     this.allStudents = [
-      { id: 1, name: 'Ion Popescu', project: 'Aplicație Angular', department: "Matemetică și Informatică"},
-      { id: 2, name: 'Maria Ionescu', project: '', department: "Inginerie" },
-      { id: 3, name: 'Alex Radu', project: null, department: "Inginerie" },
-      { id: 4, name: 'Daria Stoica', project: 'Sistem ERP', department: "Matemetică și Informatică" }
+      { id: 1, name: 'Ion Popescu', project: 'Aplicație Angular', specializare: "Informatică"},
+      { id: 2, name: 'Maria Ionescu', project: '', specializare: "PABD" },
+      { id: 3, name: 'Alex Radu', project: null, specializare: "Informatică" },
+      { id: 4, name: 'Daria Stoica', project: 'Sistem ERP', specializare: "PABD" }
     ];
 
     // La început afișăm toți studenții
