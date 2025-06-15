@@ -1,0 +1,113 @@
+/* Shared container styling */
+.request-form-container,
+.view-details-container {
+  height: 87.5vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f6f8;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Shared card styling */
+.request-form-card,
+.view-details-card {
+  width: 100%;
+  height: 70%;
+  max-width: 480px;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Form layout */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Headings */
+h1, .card-title {
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+/* Labels */
+label {
+  font-weight: 500;
+  display: block;
+}
+
+/* Inputs and selects */
+select,
+input[type="text"],
+textarea,
+button {
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 2vh;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus,
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #007acc;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.2);
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1.2);
+}
+
+.checkboxDiv {
+  margin: 2.5vh 0;
+}
+
+/* Warning text */
+.warning-message {
+  color: red;
+}
+
+/* Button styling */
+button {
+  background-color: #007acc;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 5vh;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+/* Project detail field blocks */
+.card-field {
+  margin-bottom: 2vh;
+}
+
+.card-field label {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  display: block;
+}
+
+.card-field p {
+  margin: 0.3rem 0 0 0;
+  padding: 0.5rem;
+  background-color: #f1f1f1;
+  border-radius: 0.4rem;
+}

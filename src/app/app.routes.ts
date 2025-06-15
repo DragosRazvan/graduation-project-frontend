@@ -13,6 +13,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { SecretaryViewProfessorsComponent } from './components/secretary-view-professors/secretary-view-professors.component';
 import { SecretaryViewStudentsComponent } from './components/secretary-view-students/secretary-view-students.component';
 import { SecretaryViewProfessorCoordinatedProjectsComponent } from './components/secretary-view-professor-coordinated-projects/secretary-view-professor-coordinated-projects.component';
+import { StudentPageComponent } from './components/student-page/student-page.component';
 
 export const routes: Routes = [
     {
@@ -69,5 +70,9 @@ export const routes: Routes = [
     {
         path: "SecretaryViewProfessors/:id/ProfessorCoordinatedProjects",
         component: SecretaryViewProfessorCoordinatedProjectsComponent
+    },
+    {
+        path: "StudentPage",
+        component: StudentPageComponent
     }
 ];

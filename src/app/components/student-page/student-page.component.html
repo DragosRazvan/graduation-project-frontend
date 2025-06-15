@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<!-- Show form if ProjectRequestId is null -->
+<div *ngIf="!student?.projectRequestId; else projectDetails">
+  <div class="request-form-container">
+    <div class="request-form-card">
+      <h1>Formular cerere proiect</h1>
+      <form (ngSubmit)="onSubmit()">
+        <!-- First Select -->
+        <label for="mainSelect">Alege un profesor</label>
+        <select id="mainSelect" [(ngModel)]="formData.professorSelect" name="mainSelect" (change)="onProfessorChange($event)">
+          <!-- <option value="Incze Arpad">Incze Arpad</option>
+          <option value="Muntean Maria">Muntean Maria</option> -->
+          <option *ngFor="let prof of professors" [value]="prof.id">{{ prof.secondName }} {{prof.firstName}}</option>
+        </select>
+
+        <!-- Checkbox -->
+        <div class="checkboxDiv">
+          <label>
+            <input type="checkbox" [(ngModel)]="formData.ownProjectIdea" name="extraInputs">
+            Idee proprie de lucrare
+          </label>
+        </div>
+
+        <!-- Conditionally Show Inputs or Select -->
+        <div *ngIf="formData.ownProjectIdea; else showSecondSelect">
+          <label>Titlu lucrare</label>
+          <input type="text" [(ngModel)]="formData.ownProjectTitle" name="inputOne" />
+
+          <label>Descriere lucrare</label>
+          <textarea [(ngModel)]="formData.ownProjectDescription" name="inputTwo" rows="4" cols="65"></textarea>
+        </div>
+
+        <ng-template #showSecondSelect>
+          <label for="alternativeSelect">Lucrări propuse de profesor</label>
+          <select id="alternativeSelect" [(ngModel)]="formData.professorProjectTitle" name="altSelect">
+            <!-- <option value="alt1">AI Chatbot</option>
+            <option value="alt2">Magazin online</option> -->
+            <option *ngFor="let project of availableProjects" [value]="project.title">{{ project.title }}</option>
+          </select>
+        </ng-template>
+
+        <!-- Warning -->
+        <p *ngIf="showWarning" class="warning-message">
+          !! Te rog completează toate câmpurile !!
+        </p>
+
+        <!-- Submit -->
+        <button type="submit">Trimite</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Show project details if ProjectRequestId is not null -->
+<ng-template #projectDetails>
+  <div class="view-details-container">
+    <div class="view-details-card">
+      <h2 class="card-title">Detalii proiect</h2>
+
+      <div class="card-field">
+        <label>Titlu proiect</label>
+        <p>{{ project?.title }}</p>
+      </div>
+      <div class="card-field">
+        <label>Descriere</label>
+        <p>{{ project?.description }}</p>
+      </div>
+      <div class="card-field">
+        <label>Profesor Coordonator</label>
+        <p>{{ project?.professor }}</p>
+      </div>
+
+      <button (click)="goBack()">Înapoi</button>
+    </div>
+  </div>
+</ng-template>
+
+<app-footer></app-footer>

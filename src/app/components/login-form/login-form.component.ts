@@ -50,13 +50,11 @@ export class LoginFormComponent {
             this.router.navigate(['/SecretaryMainPage']);
           }
           else if(role === 'student'){
-            this.router.navigate(['/StudentRequestProjectForm']);
+            this.router.navigate(['/StudentPage']);
           }
           else if(role === 'professor'){
             this.router.navigate(['/ProfessorViewProjectRequests']);
           }
-
-          //this.router.navigate(['/SecretaryMainPage']); // redirect to dashboard or home
         },
         error: (err) => {
           this.error = 'Invalid credentials.';
