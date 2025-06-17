@@ -13,6 +13,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Inject, PLATFORM_ID } from '@angular/core';
 import { Project } from '../../interfaces/project';
 import { UpdateProjectRequest } from '../../interfaces/update-project-request';
+import { ProjectDetails } from '../../interfaces/project-details';
 
 @Component({
   selector: 'app-student-page',
@@ -23,10 +24,22 @@ import { UpdateProjectRequest } from '../../interfaces/update-project-request';
 export class StudentPageComponent {
   student!: Student;
   project: any;
+  projectDetailsDto: ProjectDetails = {
+    id: 0,
+    title: '',
+    description: '',
+    isAcceptedByProfessor: false,
+    statusProjectRequest: '',
+    levelOfEducation: '',
+    professorName: '',
+    studentId: 0,
+    professorId: 0
+  };
   showWarning: boolean = false;
   professors: Professor[] = [];
   departmentId: number = 0;
   availableProjects: Project[] = [];
+  loagindStudent: boolean = true;
 
   formData = {
     professorSelect: 0,
@@ -56,6 +69,7 @@ ngOnInit(): void {
     this.studentService.getStudentByEmail(email).subscribe({
       next: (studentData) => {
         this.student = studentData;
+        this.loagindStudent = false;
         console.log("Student:", this.student);
 
         if (this.student.projectRequestId) {
@@ -78,7 +92,8 @@ ngOnInit(): void {
           error: (err) => console.error("Error fetching departmentId:", err)
         });
       },
-      error: (err) => console.error("Error loading student:", err)
+      error: (err) => {console.error("Error loading student:", err);
+      this.loagindStudent = false;}
     });
 
   } catch (err) {
@@ -90,7 +105,7 @@ ngOnInit(): void {
 
   loadProjectDetails(projectId: number): void {
     this.projectService.getProjectById(projectId).subscribe({
-      next: (data) => this.project = data,
+      next: (data) => this.projectDetailsDto = data,
       error: (err) => console.error('Error loading project:', err)
     });
   }
@@ -143,6 +158,7 @@ ngOnInit(): void {
         title: this.formData.ownProjectTitle,
         description: this.formData.ownProjectDescription,
         professorId: this.formData.professorSelect,
+        isAcceptedByProfessor: false,
         studentId: this.student.id,
         levelOfEducation: null,
         id: null

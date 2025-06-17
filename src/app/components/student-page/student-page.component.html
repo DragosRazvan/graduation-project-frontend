@@ -1,5 +1,5 @@
 <app-header></app-header>
-
+<ng-container *ngIf="student !== null">
 <!-- Show form if ProjectRequestId is null -->
 <div *ngIf="!student?.projectRequestId; else projectDetails">
   <div class="request-form-container">
@@ -60,20 +60,24 @@
 
       <div class="card-field">
         <label>Titlu proiect</label>
-        <p>{{ project?.title }}</p>
+        <p>{{ projectDetailsDto.title }}</p>
       </div>
       <div class="card-field">
         <label>Descriere</label>
-        <p>{{ project?.description }}</p>
+        <p>{{ projectDetailsDto.description }}</p>
       </div>
       <div class="card-field">
         <label>Profesor Coordonator</label>
-        <p>{{ project?.professor }}</p>
+        <p>{{ projectDetailsDto.professorName }}</p>
+      </div>
+      <div class="card-field">
+        <label>Status cerere</label>
+        <p>{{ projectDetailsDto.statusProjectRequest}}</p>
       </div>
 
       <button (click)="goBack()">Înapoi</button>
     </div>
   </div>
 </ng-template>
-
+</ng-container>
 <app-footer></app-footer>
