@@ -14,6 +14,7 @@ import { SecretaryViewProfessorsComponent } from './components/secretary-view-pr
 import { SecretaryViewStudentsComponent } from './components/secretary-view-students/secretary-view-students.component';
 import { SecretaryViewProfessorCoordinatedProjectsComponent } from './components/secretary-view-professor-coordinated-projects/secretary-view-professor-coordinated-projects.component';
 import { StudentPageComponent } from './components/student-page/student-page.component';
+import { ProfessorMainPageComponent } from './components/professor-main-page/professor-main-page.component';
 
 export const routes: Routes = [
     {
@@ -74,5 +75,9 @@ export const routes: Routes = [
     {
         path: "StudentPage",
         component: StudentPageComponent
+    },
+    {
+        path: "ProfessorPage",
+        component: ProfessorMainPageComponent
     }
 ];
