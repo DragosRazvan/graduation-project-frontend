@@ -41,7 +41,7 @@ export const routes: Routes = [
         component: ProfessorViewOwnProjectIdeasComponent
     },
     {
-        path: "ProfessorUpdateProjectRequest/:projectRequestId",
+        path: "ProfessorViewProjectRequest/:projectRequestId",
         component: ProfessorUpdateProjectRequestComponent
     },
     {

@@ -1,31 +1,38 @@
 <app-header></app-header>
+
 <div class="table-wrapper">
-    <div class="table-container">
-        <h2>Cereri coordonare proiecte</h2>
-        <table>
-            <thead>
-                <tr>
-                <th>Titlu</th>
-                <th>Student</th>
-                <th>Status</th>
-                <th>Acțiuni</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let project of projects">
-                <td>{{ project.title }}</td>
-                <td>{{ project.student }}</td>
-                <td [ngClass]="{
-                    'status-accepted': project.status === 'acceptată',
-                    'status-pending': project.status === 'în așteptare'
-                    }">{{ project.status }}
-                </td>
-                <td>
-                    <a [routerLink]="['/ProfessorUpdateProjectRequest', project.id]" class="details-link">Vizualizare</a>
-                </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="table-container">
+    <h2>Cereri coordonare proiecte</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Titlu</th>
+          <th>Student</th>
+          <th>Status</th>
+          <th>Acțiuni</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="loading">
+            <td colspan="4" class="text-center">Se încarcă proiectele...</td>
+        </tr>
+        <tr *ngIf="!loading && professorCoordinatedProjects.length === 0">
+            <td colspan="4" class="text-center">Niciun proiect coordonat</td>
+        </tr>
+        <tr *ngFor="let project of professorCoordinatedProjects">
+            <td>{{ project.title }}</td>
+            <td>{{ project.student?.firstName }} {{ project.student?.secondName }}</td>
+            <td [ngClass]="{
+            'status-accepted': project.status === 'acceptată',
+            'status-pending': project.status === 'în așteptare'
+            }">{{ project.status }}</td>
+            <td>
+            <a [routerLink]="['/ProfessorViewProjectRequest/', project.id]" class="details-link">Vizualizare</a>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
 <app-footer></app-footer>

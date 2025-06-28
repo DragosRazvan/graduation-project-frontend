@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Professor } from '../interfaces/professor';
 import { UpdateProjectRequest } from '../interfaces/update-project-request';
 import { Project } from '../interfaces/project';
+import { Student } from '../interfaces/student';
+import { Specialization } from '../interfaces/specialization';
 
 @Injectable({ providedIn: 'root' })
 export class StudentService {
@@ -14,6 +16,14 @@ export class StudentService {
   getStudentByEmail(email: string): Observable<any> {
     const body = { email };
     return this.http.post<any>(`${this.baseUrl}/GetStudentByEmail`, body);
+  }
+
+  getStudentById(studentId: number | null): Observable<Student> {
+    return this.http.get<Student>(`${this.baseUrl}/GetStudentById/${studentId}`);
+  }
+
+  getStudentSpecialization(specializationId: number): Observable<Specialization>{
+    return this.http.get<Specialization>(`${this.baseUrl}/GetStudentSpecialization/${specializationId}`);
   }
 
   getAllProfessorsByDepartment(departmentId: number): Observable<Professor[]> {

@@ -3,30 +3,51 @@
   <div class="view-details-card">
     <h2 class="card-title">Detalii proiect</h2>
 
-    <div class="card-field">
-      <label>Titlu proiect</label>
-      <p>{{ project.title }}</p>
-    </div>
-    <div class="card-field">
-      <label>Descriere</label>
-      <p>{{ project.description }}</p>
-    </div>
-    <div class="card-field">
-      <label>Student</label>
-      <p>{{ project.studentName }}</p>
-    </div>
-    <div class="card-field">
-      <label>Specializare</label>
-      <p>{{ project.specialization }}</p>
-    </div>
-    <div class="card-field">
-      <label>Nivel educație</label>
-      <p>{{ project.levelOfStudy }}</p>
-    </div>
-    <div class="card-buttons-div" *ngIf="!project.IsAccepted">
-        <button class="acceptButton" (click)="acceptProjectRequest()">Acceptă</button>
-        <button class="rejectButton" (click)="rejectProjectRequest()">Refuză</button>
-    </div>
+    <ng-container *ngIf="previousUrl.includes('ProfessorViewProjectRequests'); else editableTemplate">
+      <!-- Static read-only version -->
+      <div class="card-field">
+        <label>Titlu proiect</label>
+        <p>{{ project.title }}</p>
+      </div>
+      <div class="card-field">
+        <label>Descriere</label>
+        <p>{{ project.description }}</p>
+      </div>
+      <div class="card-field">
+        <label>Student</label>
+        <p>{{ student.firstName }} {{student.secondName}}</p>
+      </div>
+      <div class="card-field">
+        <label>Specializare</label>
+        <p>{{ specialization.name }}</p>
+      </div>
+      <div class="card-field">
+        <label>Nivel educație</label>
+        <p>{{ project.levelOfEducation }}</p>
+      </div>
+      <div class="card-buttons-div" *ngIf="!project.isAcceptedByProfessor">
+          <button class="acceptButton" (click)="acceptProjectRequest()">Acceptă</button>
+          <button class="rejectButton" (click)="rejectProjectRequest()">Refuză</button>
+      </div>
+    </ng-container>
+
+    <!-- Editable form for ProfessorViewOwnProjectsIdeas -->
+    <ng-template #editableTemplate>
+      <form (ngSubmit)="updateProject()">
+        <div class="card-field">
+          <label for="title">Titlu proiect</label>
+          <input id="title" [(ngModel)]="project.title" name="title" required class="editable-input" />
+        </div>
+        <div class="card-field">
+          <label for="description">Descriere</label>
+          <textarea id="description" [(ngModel)]="project.description" name="description" required class="editable-textarea"></textarea>
+        </div>
+        <div class="card-buttons-div">
+          <button type="submit" class="updateButton">Actualizează</button>
+        </div>
+      </form>
+    </ng-template>
+
   </div>
 </div>
 <app-footer></app-footer>

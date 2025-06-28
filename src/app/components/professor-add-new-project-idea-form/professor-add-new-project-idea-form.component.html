@@ -5,17 +5,17 @@
         <form (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label>Titlu proiect:</label>
-                <input type="text" [(ngModel)]="formData.inputOne" name="inputOne" />
+                <input type="text" [(ngModel)]="formData.projectTitle" name="inputOne" />
             </div>
             <div class="form-group">
                 <label>Descriere:</label>
-                <input type="text" [(ngModel)]="formData.inputTwo" name="inputTwo" />
+                <input type="text" [(ngModel)]="formData.projectDescription" name="inputTwo" />
             </div>
             <div class="form-group">
                 <label for="alternativeSelect">Nivel educație:</label>
-                <select id="alternativeSelect" [(ngModel)]="formData.altSelect" name="altSelect">
-                    <option value="alt1">Licență</option>
-                    <option value="alt2">Master</option>
+                <select id="alternativeSelect" [(ngModel)]="formData.LevelOfEducation" name="altSelect">
+                    <option value="Licență">Licență</option>
+                    <option value="Master">Master</option>
                 </select>
             </div>
             <!-- ❗ Warning message -->

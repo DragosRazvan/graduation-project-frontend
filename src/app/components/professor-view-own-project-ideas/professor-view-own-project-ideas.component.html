@@ -10,21 +10,21 @@
             <tr>
             <th>Titlu</th>
             <th>Student</th>
-            <th>Status</th>
+            <!-- <th>Status</th> -->
             <th>Acțiuni</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let project of projects">
             <td>{{ project.title }}</td>
-            <td>{{ project.student }}</td>
-            <td [ngClass]="{
+            <td>{{ project.student?.firstName }} {{ project.student?.secondName }}</td>
+            <!-- <td [ngClass]="{
                 'status-free': project.status === 'liberă',
                 'status-taken': project.status === 'ocupată'
                 }">{{ project.status }}
-            </td>
+            </td> -->
             <td>
-                <a [routerLink]="['/project', project.id]" class="details-link">Vizualizează/Modifică</a>
+                <a [routerLink]="['/ProfessorViewProjectRequest', project.id]" class="details-link">Vizualizează/Modifică</a>
             </td>
             </tr>
         </tbody>
