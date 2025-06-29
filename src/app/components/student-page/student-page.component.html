@@ -1,7 +1,10 @@
 <app-header></app-header>
 <ng-container *ngIf="student !== null">
+  <div *ngIf="loading">
+            <h2 colspan="4" class="text-center">Se încarcă proiectele...</h2>
+  </div>
 <!-- Show form if ProjectRequestId is null -->
-<div *ngIf="!student?.projectRequestId; else projectDetails">
+<div *ngIf="!loading && !projectDetailsDto.studentId; else projectDetails">
   <div class="request-form-container">
     <div class="request-form-card">
       <h1>Formular cerere proiect</h1>
@@ -72,9 +75,13 @@
       </div>
       <div class="card-field">
         <label>Status cerere</label>
-        <p>{{ projectDetailsDto.statusProjectRequest}}</p>
+        <p>{{ projectDetailsDto.statusProjectRequest }}</p>
       </div>
 
+      <!-- Conditional message -->
+      <div *ngIf="projectDetailsDto?.statusProjectRequest === 'în așteptare'">
+        <p class="info-message">Cererea dumneavoastră este în curs de aprobare</p>
+      </div>
       <button (click)="goBack()">Înapoi</button>
     </div>
   </div>

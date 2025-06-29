@@ -21,6 +21,14 @@ export class ProfesorService {
     return this.http.get<Professor>(`${this.baseUrl}/GetProfessorByEmail/${email}`);
   }
 
+  getProfessorById(id: number): Observable<Professor> {
+    return this.http.get<Professor>(`${this.baseUrl}/GetProfessorById/${id}`);
+  }
+
+  getProfessorsByFacultyId(facultyId: number): Observable<Professor[]>{
+    return this.http.get<Professor[]>(`${this.baseUrl}/GetProfessorsByFacultyId/${facultyId}`);
+  }
+
   getProjects(professorId: number): Observable<ProjectsCoordinatedByProfessor[]> {
       return this.http.get<ProjectsCoordinatedByProfessor[]>(`${this.baseUrl}/GetAllProjectRequests/${professorId}`);
     }

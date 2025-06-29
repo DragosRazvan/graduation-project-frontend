@@ -16,6 +16,10 @@ export class ProjectService {
     return this.http.get<ProjectDetails>(`${this.baseUrl}/${id}`);
   } 
 
+  getProjectByStudentId(id: number): Observable<ProjectDetails> {
+    return this.http.get<ProjectDetails>(`${this.baseUrl}/GetProjectByStudentId/${id}`);
+  } 
+
   getProjectsByProfessorId(professorId: number): Observable<Project[]> {
     return this.http.get<Project[]>(`${this.baseUrl}/GetProjectsByProfessorId/${professorId}`);
   }

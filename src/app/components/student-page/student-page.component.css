@@ -111,3 +111,9 @@ button:hover {
   background-color: #f1f1f1;
   border-radius: 0.4rem;
 }
+
+.info-message {
+  color: #ff9800;
+  font-weight: 500;
+  margin-top: 10px;
+}

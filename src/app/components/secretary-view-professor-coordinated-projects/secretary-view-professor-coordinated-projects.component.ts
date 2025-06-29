@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { ProfesorService } from '../../services/profesor.service';
+import { ProjectsCoordinatedByProfessor } from '../../interfaces/projects-coordinated-by-professor';
+import { Professor } from '../../interfaces/professor';
 
 @Component({
   selector: 'app-secretary-view-professor-coordinated-projects',
@@ -11,21 +14,42 @@ import { CommonModule } from '@angular/common';
   styleUrl: './secretary-view-professor-coordinated-projects.component.css'
 })
 export class SecretaryViewProfessorCoordinatedProjectsComponent implements OnInit {
-  professorId: string = '';
+  professorId: number = 0;
   professorName: string = 'Andrei Popa';
   projects: any[] = [];
+  professor!: Professor;
 
-  // Exemplu static – în practică, apelezi un API sau un service
-  allProjects = [
-    { id: 1, title: 'Aplicație Angular', student: 'Ion Popescu', status: 'acceptată', professorId: '1', professorName: "Incze Arpad"},
-    { id: 2, title: 'ERP System', student: 'Maria Ionescu', status: 'în așteptare', professorId: '1', professorName: "Incze Arpad" },
-    { id: 3, title: 'Website React', student: 'Alex Radu', status: 'acceptată', professorId: '2', professorName: "Maria Muntean" },
-  ];
+  professorProjects: ProjectsCoordinatedByProfessor[] = [];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private professorService: ProfesorService,
+    private route: ActivatedRoute,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit(): void {
-    this.professorId = this.route.snapshot.paramMap.get('id') ?? '';
-    this.projects = this.allProjects.filter(p => p.professorId === this.professorId);
+    if (isPlatformBrowser(this.platformId)) {
+
+      this.professorId = Number(this.route.snapshot.paramMap.get('id'));
+      //this.projects = this.allProjects.filter(p => p.professorId === this.professorId);
+    
+      this.professorService.getProfessorById(this.professorId).subscribe({
+        next: (professorData) => {
+          this.professor = professorData;
+          console.log("Professor: ", this.professor);
+
+          if(this.professor == null)
+            return;
+
+          this.professorService.getProjects(this.professorId).subscribe({
+            next: (data) => {
+              this.professorProjects = data;
+              console.log("Professor projects: ", this.professorProjects);
+            }
+          })
+        }
+      })
+      
+    }
   }
 }

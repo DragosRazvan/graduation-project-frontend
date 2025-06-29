@@ -6,6 +6,7 @@ import { UpdateProjectRequest } from '../interfaces/update-project-request';
 import { Project } from '../interfaces/project';
 import { Student } from '../interfaces/student';
 import { Specialization } from '../interfaces/specialization';
+import { StudentWithProject } from '../interfaces/student-with-project';
 
 @Injectable({ providedIn: 'root' })
 export class StudentService {
@@ -13,9 +14,9 @@ export class StudentService {
 
   constructor(private http: HttpClient) {}
 
-  getStudentByEmail(email: string): Observable<any> {
-    const body = { email };
-    return this.http.post<any>(`${this.baseUrl}/GetStudentByEmail`, body);
+  getStudentByEmail(email: string): Observable<Student> {
+    //const body = { email };
+    return this.http.get<Student>(`${this.baseUrl}/GetStudentByEmail/${email}`);
   }
 
   getStudentById(studentId: number | null): Observable<Student> {
@@ -24,6 +25,10 @@ export class StudentService {
 
   getStudentSpecialization(specializationId: number): Observable<Specialization>{
     return this.http.get<Specialization>(`${this.baseUrl}/GetStudentSpecialization/${specializationId}`);
+  }
+
+  getStudentsByFacultyId(facultyId: number): Observable<StudentWithProject[]>{
+    return this.http.get<StudentWithProject[]>(`${this.baseUrl}/GetStudentsByFacultyId/${facultyId}`);
   }
 
   getAllProfessorsByDepartment(departmentId: number): Observable<Professor[]> {

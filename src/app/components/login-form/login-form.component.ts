@@ -53,7 +53,7 @@ export class LoginFormComponent {
             this.router.navigate(['/StudentPage']);
           }
           else if(role === 'professor'){
-            this.router.navigate(['/ProfessorViewProjectRequests']);
+            this.router.navigate(['/ProfessorPage']);
           }
         },
         error: (err) => {

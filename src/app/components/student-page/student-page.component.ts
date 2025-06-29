@@ -39,7 +39,7 @@ export class StudentPageComponent {
   professors: Professor[] = [];
   departmentId: number = 0;
   availableProjects: Project[] = [];
-  loagindStudent: boolean = true;
+  loading: boolean = true;
 
   formData = {
     professorSelect: 0,
@@ -69,11 +69,15 @@ ngOnInit(): void {
     this.studentService.getStudentByEmail(email).subscribe({
       next: (studentData) => {
         this.student = studentData;
-        this.loagindStudent = false;
+        //this.loading = false;
         console.log("Student:", this.student);
 
         if (this.student.projectRequestId) {
           this.loadProjectDetails(this.student.projectRequestId);
+        }
+        else{
+          this.loadProjectDetailsByStudentId(this.student.id)
+          this.loading = false;
         }
 
         this.specializationService.getDepartmentIdBySpecializationId(this.student.specializationId).subscribe({
@@ -93,7 +97,7 @@ ngOnInit(): void {
         });
       },
       error: (err) => {console.error("Error loading student:", err);
-      this.loagindStudent = false;}
+      this.loading = false;}
     });
 
   } catch (err) {
@@ -105,6 +109,13 @@ ngOnInit(): void {
 
   loadProjectDetails(projectId: number): void {
     this.projectService.getProjectById(projectId).subscribe({
+      next: (data) => this.projectDetailsDto = data,
+      error: (err) => console.error('Error loading project:', err)
+    });
+  }
+
+  loadProjectDetailsByStudentId(studentId: number): void {
+    this.projectService.getProjectByStudentId(studentId).subscribe({
       next: (data) => this.projectDetailsDto = data,
       error: (err) => console.error('Error loading project:', err)
     });
