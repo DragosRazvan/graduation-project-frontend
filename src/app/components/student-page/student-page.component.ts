@@ -72,15 +72,10 @@ ngOnInit(): void {
         //this.loading = false;
         console.log("Student:", this.student);
 
-        if (this.student.projectRequestId) {
-          this.loadProjectDetails(this.student.projectRequestId);
-        }
-        else{
-          this.loadProjectDetailsByStudentId(this.student.id)
-          this.loading = false;
-        }
+        this.loadProjectDetailsByStudentId(this.student.id);
 
-        this.specializationService.getDepartmentIdBySpecializationId(this.student.specializationId).subscribe({
+        if(this.projectDetailsDto == null){
+          this.specializationService.getDepartmentIdBySpecializationId(this.student.specializationId).subscribe({
           next: (departmentId) => {
             this.departmentId = departmentId;
             console.log("Department ID:", this.departmentId);
@@ -95,6 +90,17 @@ ngOnInit(): void {
           },
           error: (err) => console.error("Error fetching departmentId:", err)
         });
+        }
+
+        // if (this.student.projectRequestId) {
+        //   this.loadProjectDetails(this.student.projectRequestId);
+        // }
+        // else{
+        //   //this.loadProjectDetailsByStudentId(this.student.id)
+        //   this.loading = false;
+        // }
+
+        
       },
       error: (err) => {console.error("Error loading student:", err);
       this.loading = false;}
@@ -115,6 +121,13 @@ ngOnInit(): void {
   }
 
   loadProjectDetailsByStudentId(studentId: number): void {
+    this.projectService.getProjectByStudentId(studentId).subscribe({
+      next: (data) => this.projectDetailsDto = data,
+      error: (err) => console.error('Error loading project:', err)
+    });
+  }
+
+  loadProject(studentId: number): void {
     this.projectService.getProjectByStudentId(studentId).subscribe({
       next: (data) => this.projectDetailsDto = data,
       error: (err) => console.error('Error loading project:', err)

@@ -26,8 +26,8 @@
         <p>{{ project.levelOfEducation }}</p>
       </div>
       <div class="card-buttons-div" *ngIf="!project.isAcceptedByProfessor">
-          <button class="acceptButton" (click)="acceptProjectRequest()">Acceptă</button>
-          <button class="rejectButton" (click)="rejectProjectRequest()">Refuză</button>
+          <button class="acceptButton" (click)="acceptProjectRequest()" [disabled]="loading">Acceptă</button>
+          <button class="rejectButton" (click)="rejectProjectRequest()" [disabled]="loading">Refuză</button>
       </div>
     </ng-container>
 

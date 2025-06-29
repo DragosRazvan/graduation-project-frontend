@@ -98,6 +98,7 @@ export class ProfessorUpdateProjectRequestComponent {
           this.project = data;
           this.beforeUpdateProjectData = this.project;
           console.log("project: ", this.project);
+          this.loading = false;
 
           if(this.previousUrl.includes("ProfessorViewProjectRequests")){
 
@@ -112,12 +113,13 @@ export class ProfessorUpdateProjectRequestComponent {
                     next: (specializationData) => {
                       this.specialization = specializationData;
                       console.log(this.specialization);
+                      this.loading= false;
                     }
                   })
                 }
-                else{
-                  this.loading = false;
-                }
+                // else{
+                //   this.loading = false;
+                // }
               }
             })
           }
@@ -134,6 +136,7 @@ export class ProfessorUpdateProjectRequestComponent {
   }
 
   public acceptProjectRequest(){
+   
     var updateProjectRequestDto: UpdateProjectRequestProfessor = {
       projectRequestId: this.project.id,
       accepted: true
